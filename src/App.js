@@ -1,19 +1,19 @@
 import { BrowserRouter, Route, Routes} from 'react-router-dom';
-import React, { useState } from 'react';
 import './shared/reset.css';
 
-import Navbar from './components/navbar/Navbar';
 import SignIn from './components/singIn/SingIn';
+import SignUp from './components/singUp/SingUp';
+import { Home } from './components/Home';
 
 
 function App() {
-  const [online, setOnline] = useState(false);
 
   return (
     <BrowserRouter>
-        <Navbar online={online} setOnline={setOnline} />
         <Routes>
+        <Route path="/" element={<Home/>} />
         <Route path='/sign-in' element={<SignIn/>} />
+        <Route path='/sign-up' element={<SignUp/>} />
         </Routes>
       </BrowserRouter>
   );
