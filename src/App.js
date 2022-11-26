@@ -1,24 +1,21 @@
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter, Route, Routes} from 'react-router-dom';
+import React, { useState } from 'react';
+import './shared/reset.css';
+
+import Navbar from './components/navbar/Navbar';
+import SignIn from './components/singIn/SingIn';
+
 
 function App() {
+  const [online, setOnline] = useState(false);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+        <Navbar online={online} setOnline={setOnline} />
+        <Routes>
+        <Route path='/sign-in' element={<SignIn/>} />
+        </Routes>
+      </BrowserRouter>
   );
 }
 
