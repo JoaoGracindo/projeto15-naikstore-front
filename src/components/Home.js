@@ -1,9 +1,8 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Navbar from "./navbar/Navbar"
 
 export const Home = ()=>{
-    const [online, setOnline] = useState(false);
     return(
-        <Navbar online={online} setOnline={setOnline} />
+        <Navbar />
     )
 }
