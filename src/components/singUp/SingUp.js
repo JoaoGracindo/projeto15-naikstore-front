@@ -1,4 +1,5 @@
 import { useState, useContext } from "react";
+import axios from 'axios';
 import { Link, useNavigate } from "react-router-dom";
 import AuthContext from "../../contexts/AuthContext";
 import { Input, Form, Container, Button } from "../singIn/signInStyled";
@@ -10,8 +11,8 @@ const SignUp = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [repeatPassword, setRepeatPassword] = useState('');
-    //const { setToken } = useContext(AuthContext);
-    //const navigate = useNavigate();
+    const { setToken } = useContext(AuthContext);
+    const navigate = useNavigate();
 
 
     function handleForm(e){
@@ -24,14 +25,14 @@ const SignUp = () => {
                 card:[],
             }
     
-            /*const promise = axios.post('localhost', userLogin)
+            const promise = axios.post('http://localhost:5000/sign-up', userRegister)
             promise.then( (res) => {
                 setToken(res.data.token);
-                navigate("/")
+                navigate("/sign-in")
             }
-                )*/
+                )
         } else{
-            alert("As senhas não sõa iguais")
+            alert("As senhas não são iguais")
         }
         
         e.preventDefault();

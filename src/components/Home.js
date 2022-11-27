@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
+
 import Navbar from "./navbar/Navbar"
 import Products from './Products';
 
@@ -8,7 +9,7 @@ export const Home = () => {
     const [online, setOnline] = useState(false);
     return (
         <Container>
-            <Navbar online={online} setOnline={setOnline} />
+            <Navbar/>
             <Products />
         </Container>
     )
