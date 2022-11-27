@@ -31,6 +31,7 @@ const SignUp = () => {
                 navigate("/sign-in")
             }
                 )
+                .catch(alert("Não foi possivel realizar o cadastro"))
         } else{
             alert("As senhas não são iguais")
         }

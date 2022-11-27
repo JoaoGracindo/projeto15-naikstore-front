@@ -25,6 +25,7 @@ const SignIn = () => {
             navigate("/")
         }
             )
+        .catch(alert("E-mail e/ou senha errados "))
         e.preventDefault();
     }
 

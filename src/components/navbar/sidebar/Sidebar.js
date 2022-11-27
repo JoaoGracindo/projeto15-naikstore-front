@@ -1,5 +1,5 @@
 import {useContext} from 'react'
-import { Container, Content, Button} from './sidebarStyle'
+import { Container, Content, Button, Div} from './sidebarStyle'
 import { Link, useParams } from 'react-router-dom';
 
 import SidebarItem from './OptionSidebar/SidebarOption'
@@ -25,21 +25,22 @@ const Sidebar = ({ active }) => {
 
   return (
     <>
-      <Container sidebar={active}>
-        {token? <Link to={'/log-out'}>
-          <Button onClick={closeSidebar}>Sair</Button>
-        </Link>
-        :
-        <Link to={'/sign-in'}>
-          <Button onClick={closeSidebar}>Entrar</Button>
-        </Link>}
-        <Content>
-          {category?
-            <><SidebarItem path={"/"} text="Home" closeSidebar={closeSidebar} /><SidebarItem path={`/produtos/${newPath}`} text={newPath} closeSidebar={closeSidebar} /></>
+        <Container sidebar={active}>
+          {token? <Link to={'/log-out'}>
+            <Button onClick={closeSidebar}>Sair</Button>
+          </Link>
           :
-            <><SidebarItem path={"/produtos/Casual"} text="Casual" closeSidebar={closeSidebar} /><SidebarItem path={"/produtos/Esporte"} text="Esporte" closeSidebar={closeSidebar} /></>}
-        </Content>
-      </Container>
+          <Link to={'/sign-in'}>
+            <Button onClick={closeSidebar}>Entrar</Button>
+          </Link>}
+          <Content>
+            {category?
+              <><SidebarItem path={"/"} text="Home" closeSidebar={closeSidebar} /><SidebarItem path={`/produtos/${newPath}`} text={newPath} closeSidebar={closeSidebar} /></>
+            :
+              <><SidebarItem path={"/produtos/Casual"} text="Casual" closeSidebar={closeSidebar} /><SidebarItem path={"/produtos/Esporte"} text="Esporte" closeSidebar={closeSidebar} /></>}
+          </Content>
+        </Container>
+        <Div sidebar={active} onClick={closeSidebar}></Div>
       </>
 )
 }
