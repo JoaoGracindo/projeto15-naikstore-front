@@ -1,6 +1,6 @@
 import {useContext} from 'react'
 import { Container, Content, Button} from './sidebarStyle'
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 
 import SidebarItem from './OptionSidebar/SidebarOption'
 import AuthContext from '../../../contexts/AuthContext';
@@ -8,9 +8,20 @@ import AuthContext from '../../../contexts/AuthContext';
 const Sidebar = ({ active }) => {
 
   const { token } = useContext(AuthContext);
+  const {category}= useParams();
   const closeSidebar = () => {
     active(false)
   }
+
+  const Path = ()=>{
+    if(category === "Casual"){
+      return "Esporte"
+    } else{
+      return "Casual"
+    }
+  }
+
+  let newPath = Path();
 
   return (
     <>
@@ -23,10 +34,10 @@ const Sidebar = ({ active }) => {
           <Button onClick={closeSidebar}>Entrar</Button>
         </Link>}
         <Content>
-          <SidebarItem path={"/1"} Text="Type 1" closeSidebar={closeSidebar}/>
-          <SidebarItem path={"/2"} Text="Type 2" closeSidebar={closeSidebar}/>
-          <SidebarItem path={"/3"} Text="Type 3" closeSidebar={closeSidebar}/>
-          <SidebarItem path={"/4"} Text="Type 4" closeSidebar={closeSidebar}/>
+          {category?
+            <><SidebarItem path={"/"} text="Home" closeSidebar={closeSidebar} /><SidebarItem path={`/produtos/${newPath}`} text={newPath} closeSidebar={closeSidebar} /></>
+          :
+            <><SidebarItem path={"/produtos/Casual"} text="Casual" closeSidebar={closeSidebar} /><SidebarItem path={"/produtos/Esporte"} text="Esporte" closeSidebar={closeSidebar} /></>}
         </Content>
       </Container>
       </>

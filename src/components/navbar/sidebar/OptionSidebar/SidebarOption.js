@@ -1,13 +1,13 @@
-import React from 'react'
-import{Link} from 'react-router-dom';
+import React from 'react';
 import { Container } from './SidebarOptionStyles'
+import { Link } from 'react-router-dom';
 
 
-const SidebarItem = ({ path, Text, closeSidebar }) => {
+const SidebarItem = ({path, text, closeSidebar }) => {
   return (
     <Link to={path}>
       <Container onClick={closeSidebar}>
-        <h3>{Text}</h3>
+        <h3>{text}</h3>
       </Container>
     </Link>
   )

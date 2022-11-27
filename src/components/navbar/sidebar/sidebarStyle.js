@@ -6,7 +6,7 @@ export const Container = styled.div`
   height: 100%;
   top: 0px;
   right: 0px;
-  width: 80%;
+  width: 20%;
   padding-left: 30px;
   right: ${props => props.sidebar ? '0' : '-100%'};
   animation: showSidebar .1s;

@@ -1,10 +1,12 @@
 import styled from 'styled-components';
-import { Link } from 'react-router-dom';
-import { useEffect, useState } from 'react';
+import { Link, useParams } from 'react-router-dom';
+import { useEffect, useState} from 'react';
 import axios from "axios"
+import Navbar from './navbar/Navbar';
 
-export default function Products() {
+export default function ProductsType() {
     const [listProducts, setListProducts] = useState([])
+    const {category} = useParams()
     console.log(listProducts)
 
     function sucessGet(res){
@@ -12,28 +14,31 @@ export default function Products() {
     }
 
     useEffect(() => {
-        axios.get("http://localhost:5000/produtos")
+        axios.get(`http://localhost:5000/produtos/${category}`)
             .then((res) => sucessGet(res))
             .catch((error) => (console.log(error)))
-    },[])
+    },[category])
 
   return (
-    <Container>
-      <div className='productsScreen'>
-        {listProducts.map((obj) => (
-          <LinkStyled to={`/${obj._id}`}>
-            <div className='products'>
-              <img src={obj.imgUrl} alt={obj.name}/>
-              <p className="name">{obj.name}</p>
-              <p className="price"> R$ {obj.price.replace(".",",")}</p>
-            </div>
-          </LinkStyled>
-        )
+    <>
+    <Navbar/>
+      <Container>
+        <div className='productsScreen'>
+          {listProducts.map((obj) => (
+            <LinkStyled to={`/${obj._id}`}>
+              <div className='products'>
+                <img src={obj.imgUrl} alt={obj.name}/>
+                <p className="name">{obj.name}</p>
+                <p className="price"> R$ {obj.price.replace(".",",")}</p>
+              </div>
+            </LinkStyled>
+          )
 
-        )}
+          )}
 
-      </div>
-    </Container>
+        </div>
+      </Container>
+    </>
   )
 }
 
@@ -41,7 +46,8 @@ const Container = styled.div`
     width: 100%;
     height: 100%;
     background-color: white;
-    padding-top: 80px;
+    padding-top: 140px;
+    
     
     .productsScreen{
       width: 100%;
@@ -51,6 +57,8 @@ const Container = styled.div`
       display: flex;
       flex-wrap: wrap;
       justify-content: space-between;
+      
+      
       
 
       .products{

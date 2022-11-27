@@ -10,7 +10,7 @@ const {token, setToken} = useContext(AuthContext);
 
 
 useEffect(()=> {
-    const promise = axios.post('http://localhost:5000/log-out', {token})
+    const promise = axios.post('mongodb+srv://mymovieserver:6Slrau3UKuou1jIT@cluster0.1lcgweb.mongodb.net/?retryWrites=true&w=majority/log-out', {token})
 promise
 .then(()=>{
     setToken("");

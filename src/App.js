@@ -7,7 +7,7 @@ import SignUp from './components/singUp/SingUp';
 import { Home } from './components/Home';
 import AuthContext from './contexts/AuthContext';
 import { LogOut } from './components/logOut';
-import Product from './components/Product';
+import ProductsType from './components/ProductsType';
 
 
 
@@ -21,6 +21,7 @@ function App() {
           <Route path='/sign-in' element={<SignIn/>} />
           <Route path='/sign-up' element={<SignUp/>} />
           <Route path='/log-out' element={<LogOut/>}/>
+          <Route path='/produtos/:category' element={<ProductsType/>}/>
           </Routes>
       </BrowserRouter>
     </AuthContext.Provider>
