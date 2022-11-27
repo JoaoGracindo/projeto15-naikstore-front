@@ -7,6 +7,7 @@ import SignUp from './components/singUp/SingUp';
 import { Home } from './components/Home';
 import AuthContext from './contexts/AuthContext';
 import { LogOut } from './components/logOut';
+import Product from './components/Product';
 
 
 
