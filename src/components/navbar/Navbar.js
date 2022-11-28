@@ -21,7 +21,7 @@ const Navbar = () => {
         
         promise.then((response) => {
             setCart([...response.data])
-            console.log([...response.data])
+            
         })
     }, [cartToggle])
 
@@ -30,7 +30,7 @@ const Navbar = () => {
     }
 
     function removeItem(obj){
-        console.log(obj)
+        
         axios.delete("https://naistore-back.onrender.com/carrinho",
              {headers: { authorization: `Bearer ${token}`}},
             obj)
