@@ -15,7 +15,7 @@ const Navbar = () => {
 
     useEffect(() => {
         const promise = axios.get(
-            "http://localhost:5000/carrinho",
+            "https://naistore-back.onrender.com/carrinho",
             {headers: { authorization: `Bearer ${token}`}}
         )
         
@@ -31,7 +31,7 @@ const Navbar = () => {
 
     function removeItem(obj){
         console.log(obj)
-        axios.delete("http://localhost:5000/carrinho",
+        axios.delete("https://naistore-back.onrender.com/carrinho",
              {headers: { authorization: `Bearer ${token}`}},
             obj)
         .then(() => {

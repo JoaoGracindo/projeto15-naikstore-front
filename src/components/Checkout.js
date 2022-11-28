@@ -25,7 +25,7 @@ function Checkout() {
             console.log(body)
     
             const promise = axios.post(
-                    'http://localhost:5000/checkout',
+                    'https://naistore-back.onrender.com/checkout',
                     body,
                     {headers: { authorization: `Bearer ${token}`}}
                     

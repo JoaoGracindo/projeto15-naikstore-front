@@ -2,7 +2,7 @@ import { useState, useContext } from "react";
 import axios from 'axios';
 import { Link, useNavigate } from "react-router-dom";
 import AuthContext from "../../contexts/AuthContext";
-import { Input, Form, Container, Button } from "./signInStyled";
+import { Input, Form, Container, Button} from "./signInStyled";
 
 
 
@@ -19,13 +19,13 @@ const SignIn = () => {
             password,
         }
 
-        const promise = axios.post('http://localhost:5000/sign-in', userLogin)
+        const promise = axios.post('https://naistore-back.onrender.com/sign-in', userLogin)
         promise.then( (res) => {
             setToken(res.data.token);
             navigate("/")
         }
             )
-        .catch(alert("E-mail e/ou senha errados "))
+        .catch((error) =>{alert("Não foi possivel realizar seu login, tente novamente")})
         e.preventDefault();
     }
 
