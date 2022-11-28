@@ -64,6 +64,9 @@ export const Cart = styled.div`
     div{
         width: 250px;
         height: 75px;
+        display:flex;
+        justify-contents: center;
+        align-items: center;
     }
     
 `
