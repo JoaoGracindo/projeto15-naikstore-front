@@ -38,3 +38,22 @@ export const Div = styled.div`
         color:black;
     }
 `
+
+export const Cart = styled.div`
+    position: fixed;
+    top:80px;
+    right: 0;
+    width: 300px;
+    height: 600px;
+    background-color: gray;
+    display: flex;
+    flex-direction: column;
+    justify-contents: center;
+
+
+    img{
+        width: 150px;
+        height: 150px;
+    }
+    
+`

@@ -1,14 +1,16 @@
 import styled from 'styled-components';
 import { Link, useParams  } from 'react-router-dom';
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import axios from "axios";
 
 import Navbar from './navbar/Navbar';
+import AuthContext from '../contexts/AuthContext';
 
 export default function Products() {
     const [listProducts, setListProducts] = useState([])
     const {category} = useParams()
-    console.log(listProducts)
+    const {token} = useContext(AuthContext)
+    console.log(token)
 
     let url;
     if(category){
@@ -26,19 +28,36 @@ export default function Products() {
             .catch((error) => (console.log(error)))
     },[url])
 
+
+    function addToCart(productToAdd){
+
+      axios.post("http://localhost:5000/carrinho",
+             productToAdd,
+             {headers: { authorization: `Bearer ${token}`}}
+             )
+           .then( () => alert("produto adicionado!"))
+           .catch( (err) =>  console.log(err) )
+              
+           }
+    
+
   return (
     <>
       <Navbar/>
       <Container>
         <div className='productsScreen'>
           {listProducts.map((obj) => (
-            <LinkStyled to={`/${obj._id}`}>
-              <div className='products'>
-                <img src={obj.imgUrl} alt={obj.name}/>
-                <p className="name">{obj.name}</p>
-                <p className="price"> R$ {obj.price.replace(".",",")}</p>
-              </div>
-            </LinkStyled>
+            <div>
+              <LinkStyled to={`/${obj._id}`}>
+                <div className='products'>
+                  <img src={obj.imgUrl} alt={obj.name}/>
+                  <p className="name">{obj.name}</p>
+                  <p className="price"> R$ {obj.price.replace(".",",")}</p>
+                </div>
+                
+              </LinkStyled>
+              <AddToCart onClick={() => addToCart(obj)}>Adicionar ao carrinho</AddToCart>
+            </div>
           )
 
           )}
@@ -70,7 +89,6 @@ const Container = styled.div`
         cursor: pointer;
         background-color: lightgray;
         font-size: 18px;
-        margin-bottom: 40px;
         border: 1px solid black;
         padding: 10px;
 
@@ -96,4 +114,14 @@ const Container = styled.div`
 const LinkStyled = styled(Link)`
   text-decoration: none;
   color: #000000;
+`
+
+const AddToCart = styled.div`
+    width: 350px;
+    height: 50px;
+    color: black;
+    background-color: white;
+    border: 1px solid black;
+    margin-top: 0;
+    margin-bottom: 40px;
 `
