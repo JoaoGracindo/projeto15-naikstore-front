@@ -10,7 +10,7 @@ const {token, setToken} = useContext(AuthContext);
 
 
 useEffect(()=> {
-    const promise = axios.post('https://naistore-back.onrender.com/log-out', {token})
+    const promise = axios.post('http://localhost:5000/log-out', {token})
 promise
 .then(()=>{
     setToken("");

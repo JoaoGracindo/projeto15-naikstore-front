@@ -8,6 +8,7 @@ import { Home } from './components/Home';
 import AuthContext from './contexts/AuthContext';
 import { LogOut } from './components/logOut';
 import Products from './components/Products';
+import Checkout from "../src/components/Checkout"
 
 
 
@@ -21,7 +22,7 @@ function App() {
           <Route path='/sign-in' element={<SignIn/>} />
           <Route path='/sign-up' element={<SignUp/>} />
           <Route path='/log-out' element={<LogOut/>}/>
-
+          <Route path='/checkout' element={<Checkout/>}/>
           <Route path='/produtos/:category' element={<Products/>}/>
           </Routes>
       </BrowserRouter>

@@ -10,13 +10,13 @@ export default function Products() {
     const [listProducts, setListProducts] = useState([])
     const {category} = useParams()
     const {token} = useContext(AuthContext)
-    console.log(token)
+    
 
     let url;
     if(category){
-      url = `https://naistore-back.onrender.com/produtos/${category}`;
+      url = `http://localhost:5000/produtos/${category}`;
     } else{
-      url="https://naistore-back.onrender.com/produtos";
+      url="http://localhost:5000/produtos";
     }
     function sucessGet(res){
         setListProducts(res.data)
@@ -31,7 +31,7 @@ export default function Products() {
 
     function addToCart(productToAdd){
 
-      axios.post("https://naistore-back.onrender.com/carrinho",
+      axios.post("http://localhost:5000/carrinho",
              productToAdd,
              {headers: { authorization: `Bearer ${token}`}}
              )

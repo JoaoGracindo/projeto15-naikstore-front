@@ -15,13 +15,13 @@ const Navbar = () => {
 
     useEffect(() => {
         const promise = axios.get(
-            "https://naistore-back.onrender.com/carrinho",
+            "http://localhost:5000/carrinho",
             {headers: { authorization: `Bearer ${token}`}}
         )
         
         promise.then((response) => {
-            console.log(response.data)
             setCart([...response.data])
+            console.log([...response.data])
         })
     }, [cartToggle])
 
@@ -31,9 +31,9 @@ const Navbar = () => {
 
     function removeItem(obj){
         console.log(obj)
-        axios.delete("https://naistore-back.onrender.com/carrinho",
-             {headers: { authorization: `Bearer ${token}`},
-            obj})
+        axios.delete("http://localhost:5000/carrinho",
+             {headers: { authorization: `Bearer ${token}`}},
+            obj)
         .then(() => {
             alert("item removido")
         })
@@ -47,7 +47,7 @@ const Navbar = () => {
                 {token? 
                     <FaCartPlus onClick={() => setCartToggle(!cartToggle)}></FaCartPlus>
                     : 
-                    <Link to={"/"} onClick={() =>alert("Faça login para acessar o carrinho")}>
+                    <Link to={"/"} onClick={() => alert("Faça login para acessar o carrinho")}>
                         <FaCartPlus ></FaCartPlus>
                     </Link>
                     }
@@ -59,7 +59,10 @@ const Navbar = () => {
                 cartToggle ? 
                  <Cart>
                     {cart.map((product) => <img onClick={() => removeItem(product)} src={product.imgUrl}/>)}
-                    <div>Checkout</div>
+                    <Link to={"/checkout"}>
+                        <div>Checkout</div>
+                    </Link>
+                    
                 </Cart> : ""
             }
 
@@ -68,3 +71,4 @@ const Navbar = () => {
 }
 
 export default Navbar;
+
