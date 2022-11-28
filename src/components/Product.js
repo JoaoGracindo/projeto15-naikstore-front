@@ -9,7 +9,7 @@ export default function Product() {
 
 
     useEffect(() => {
-        axios.get(`http://localhost:5000/produtos?id=${produtoID}`)
+        axios.get(`https://naistore-back.onrender.com/produtos?id=${produtoID}`)
             .then((res) => (console.log(res.data), setProduct(res.data[0])))
             .catch((error) => (console.log(error)))
     }, [])
@@ -17,7 +17,7 @@ export default function Product() {
    
     console.log(produtoID)
 
-    
+   
 
     return (
         <Container>

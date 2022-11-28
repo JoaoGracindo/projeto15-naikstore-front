@@ -55,5 +55,10 @@ export const Cart = styled.div`
         width: 150px;
         height: 150px;
     }
+
+    div{
+        width: 250px;
+        height: 75px;
+    }
     
 `

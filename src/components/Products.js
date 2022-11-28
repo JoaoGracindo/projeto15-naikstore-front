@@ -14,9 +14,9 @@ export default function Products() {
 
     let url;
     if(category){
-      url = `http://localhost:5000/produtos/${category}`;
+      url = `https://naistore-back.onrender.com/produtos/${category}`;
     } else{
-      url="http://localhost:5000/produtos";
+      url="https://naistore-back.onrender.com/produtos";
     }
     function sucessGet(res){
         setListProducts(res.data)
@@ -31,7 +31,7 @@ export default function Products() {
 
     function addToCart(productToAdd){
 
-      axios.post("http://localhost:5000/carrinho",
+      axios.post("https://naistore-back.onrender.com/carrinho",
              productToAdd,
              {headers: { authorization: `Bearer ${token}`}}
              )

@@ -59,6 +59,7 @@ const Navbar = () => {
                 cartToggle ? 
                  <Cart>
                     {cart.map((product) => <img onClick={() => removeItem(product)} src={product.imgUrl}/>)}
+                    <div>Checkout</div>
                 </Cart> : ""
             }
 

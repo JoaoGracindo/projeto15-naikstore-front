@@ -25,7 +25,7 @@ const SignUp = () => {
                 card:[],
             }
     
-            const promise = axios.post('http://localhost:5000/sign-up', userRegister)
+            const promise = axios.post('hhttps://naistore-back.onrender.com/sign-up', userRegister)
             promise.then( (res) => {
                 setToken(res.data.token);
                 navigate("/sign-in")
