@@ -25,13 +25,13 @@ const SignUp = () => {
                 card:[],
             }
     
-            const promise = axios.post('hhttps://naistore-back.onrender.com/sign-up', userRegister)
+            const promise = axios.post('https://naistore-back.onrender.com/sign-up', userRegister)
             promise.then( (res) => {
                 setToken(res.data.token);
                 navigate("/sign-in")
             }
                 )
-                .catch(alert("Não foi possivel realizar o cadastro"))
+                .catch((error) =>{alert("Não foi possivel realizar seu cadastro, tente novamente")})
         } else{
             alert("As senhas não são iguais")
         }

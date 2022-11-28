@@ -2,7 +2,7 @@ import { useState, useContext } from "react";
 import axios from 'axios';
 import { Link, useNavigate } from "react-router-dom";
 import AuthContext from "../../contexts/AuthContext";
-import { Input, Form, Container, Button } from "./signInStyled";
+import { Input, Form, Container, Button} from "./signInStyled";
 
 
 
@@ -25,7 +25,7 @@ const SignIn = () => {
             navigate("/")
         }
             )
-        .catch(alert("E-mail e/ou senha errados "))
+        .catch((error) =>{alert("Não foi possivel realizar seu login, tente novamente")})
         e.preventDefault();
     }
 

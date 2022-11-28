@@ -117,11 +117,18 @@ const LinkStyled = styled(Link)`
 `
 
 const AddToCart = styled.div`
+    display: flex;
+    justify-content: center;
+    align-items: center;
     width: 350px;
     height: 50px;
     color: black;
-    background-color: white;
+    font-weight: bold;
+    background-color: lightgreen;
     border: 1px solid black;
     margin-top: 0;
     margin-bottom: 40px;
+    text-align:center;
+    cursor: pointer;
+
 `

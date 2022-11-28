@@ -12,13 +12,12 @@ const {token, setToken} = useContext(AuthContext);
 useEffect(()=> {
     const promise = axios.post('https://naistore-back.onrender.com/log-out', {token})
 promise
-.then(()=>{
+.then((res)=>{
     setToken("");
     navigate("/")
 })
-.catch( ()=>{
-    alert("Não foi possivel sair da sua conta");
-    navigate("/");
+.catch((error)=>{
+    alert("Não foi possivel sair da sua conta");;
 })
-},[navigate, setToken, token]);
+},[]);
 }

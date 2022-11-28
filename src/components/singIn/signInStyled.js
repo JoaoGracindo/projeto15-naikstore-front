@@ -1,5 +1,6 @@
 import styled from "styled-components";
 
+
 export const Form = styled.form`
   display: flex;
   width: 400px;
@@ -8,6 +9,7 @@ export const Form = styled.form`
   justify-content: center;
   align-items: center;
   gap: 15px;
+  
 
   >p {
     margin-top: 20px;
@@ -22,6 +24,8 @@ export const Container = styled.div`
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    background-color: #FFFFFF;
+    
 
     >h1 {
     font-size: 30px;
