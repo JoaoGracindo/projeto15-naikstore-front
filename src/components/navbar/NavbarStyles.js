@@ -59,6 +59,9 @@ export const Cart = styled.div`
     img{
         width: 150px;
         height: 150px;
+        margin-top: 20px;
+        margin-bottom: 10px;
+        border-radius: 10px
     }
 
     div{
@@ -67,6 +70,8 @@ export const Cart = styled.div`
         display:flex;
         justify-contents: center;
         align-items: center;
+        font-size: 25px;
+        
     }
     
 `
